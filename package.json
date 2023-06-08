@@ -1,0 +1,26 @@
+{
+  "name": "update-emag-inventory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrujbanDusman/update-emag-inventory.git"
+  },
+  "keywords": [
+    "emag",
+    "inventory"
+  ],
+  "author": "Mihai Voicu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrujbanDusman/update-emag-inventory/issues"
+  },
+  "homepage": "https://github.com/DrujbanDusman/update-emag-inventory#readme",
+  "dependencies": {
+    "csv": "^6.3.1"
+  }
+}

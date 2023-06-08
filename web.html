@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Script Example</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 30px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 3px;
+      font-size: 24px;
+    }
+  </style>
+  <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="script.js" type="module"></script>
+</head>
+<body>
+  <h1>Insert Excel File</h1>
+
+  <input type="file" id="FileInput">
+  <button id="myButton">Submit</button>
+  <button id="Button2">Button2</button>
+
+  <div class="box" id="feedbackBox"></div>
+
+  <script type="module">
+    import {parse} from "./node_modules/csv/dist/esm/sync.js"
+    import { myFunction } from './script.js';
+    import { csv_to_object } from './script.js';
+
+
+    let records;
+    await fetch('export.csv')
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
+      .then(content => {
+        records = parse(content, {bom: true});
+        console.log(records);
+        //console.log(fileContent);
+         // Text content of the file
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
+    
+    
+    // const csv_object = csv_to_object(fileContent);
+    const csv_object = {}
+
+    records.forEach(element => {
+      csv_object[element[0]] = element[1];
+    });
+    console.log(csv_object);
+
+    var feedbackBox = document.getElementById("feedbackBox");
+    var button = document.getElementById("myButton");
+    button.addEventListener("click", function() {
+      
+      var fileInput = document.getElementById("FileInput");
+      var file = fileInput.files[0];
+      if(file){
+        myFunction(file,feedbackBox,csv_object);
+      }else{
+        feedbackBox.textContent = "Choose a file";
+      }
+    });
+  </script>
+</body>
+</html>
