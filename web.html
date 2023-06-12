@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Button Script Example</title>
-  <style>
-    .box {
-      width: 200px;
-      height: 30px;
-      background-color: #f1f1f1;
-      border: 1px solid #ccc;
-      padding: 3px;
-      font-size: 24px;
-    }
-  </style>
+  <title>Actualizare stocuri eMag</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mihai Voicu">
+
   <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
   <script src="script.js" type="module"></script>
 </head>
 <body>
-  <h1>Insert Excel File</h1>
+  <main>
+    <div class="px-4 py-5 my-5 text-center">
+      <img class="d-block mx-auto" src="https://s13emagst.akamaized.net/assets/ro/css/icons/logo-square.png" alt="" >
+      <h1 class="display-5 fw-bold text-body-emphasis">Actualizare stocuri eMag</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Importa fisierul original de la eMag</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <input type="file" id="FileInput" class="btn btn-outline-secondary px-4 gap-3"/> <button class="btn btn-primary btn-lg px-4 gap-3" id="myButton">Importa</button>
+        </div>
+        <div class="box d-none" id="feedbackBox"></div>
+      </div>
+    </div>
+  </main>
 
-  <input type="file" id="FileInput">
-  <button id="myButton">Submit</button>
-  <button id="Button2">Button2</button>
 
-  <div class="box" id="feedbackBox"></div>
 
   <script type="module">
     import {parse} from "./node_modules/csv/dist/esm/sync.js"
