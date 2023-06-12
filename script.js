@@ -1,5 +1,5 @@
 
-export function myFunction(file,feedbackBox,csv_data) {
+export function processEmagFile(file,feedbackBox,csv_data) {
   console.log("Button Clicked");
   if (check_file(file.type,feedbackBox)) {
     console.log("test");

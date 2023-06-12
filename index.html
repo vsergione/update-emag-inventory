@@ -30,7 +30,7 @@
 
   <script type="module">
     import {parse} from "./node_modules/csv/dist/esm/sync.js"
-    import { myFunction } from './script.js';
+    import { processEmagFile } from './script.js';
     import { csv_to_object } from './script.js';
 
 
@@ -48,6 +48,7 @@
       })
       .catch(error => {
         console.log('Error:', error);
+        alert("A aparut o eroare. Fisierul cu stocuri nu a putut fi incarcat.\n\nContacteaza administratorul la adresa: sv@softaccel.net")
       });
     
     
@@ -57,7 +58,6 @@
     records.forEach(element => {
       csv_object[element[0]] = element[1];
     });
-    console.log(csv_object);
 
     var feedbackBox = document.getElementById("feedbackBox");
     var button = document.getElementById("myButton");
@@ -66,7 +66,7 @@
       var fileInput = document.getElementById("FileInput");
       var file = fileInput.files[0];
       if(file){
-        myFunction(file,feedbackBox,csv_object);
+        processEmagFile(file,feedbackBox,csv_object);
       }else{
         feedbackBox.textContent = "Choose a file";
       }
